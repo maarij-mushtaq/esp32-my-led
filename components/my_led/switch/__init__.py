@@ -13,7 +13,7 @@ CONFIG_SCHEMA = switch.switch_schema(LedSwitch).extend({
 
 async def to_code(config):
     # Include your header into main.cpp (no trailing semicolon)
-    cg.add(cg.RawStatement('#include "components/my_led/my_led.h"'))
+    cg.add(cg.RawStatement('#include "my_led.h"'))
     var = cg.new_Pvariable(config[CONF_ID], config[CONF_PIN], config[CONF_INVERTED])
     await cg.register_component(var, config)
     await switch.register_switch(var, config)
