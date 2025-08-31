@@ -3,6 +3,9 @@
 #include "esphome.h"                      // ESPHome core (Component, Switch, etc.)
 #include "driver/gpio.h"                  // ESP-IDF GPIO API (gpio_set_level, direction)
 
+explicit LedSwitch(int pin, bool inverted = false)
+    : pin_(static_cast<gpio_num_t>(pin)), inverted_(inverted) {}
+
 namespace my_led {                        // keep our names isolated
 
 // A Home Assistant switch that directly drives a single GPIO on ESP32
